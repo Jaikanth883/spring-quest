@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="scene">
+
+    <div class="door" id="door">
+
+        <!-- Glowing Words -->
+        <div class="moriaWords">
+            <span>SPEAK</span>
+            <span>FRIEND AND</span>
+            <span>ENTER</span>
+        </div>
+
+        <!-- Input + Button -->
+        <div class="answerBox">
+            <input id="answer" placeholder="The door listens...">
+            <button id="enterBtn">Enter</button>
+        </div>
+
+        <div id="message"></div>
+
+    </div>
+
+</div>
+
+<div class="openLight" id="openLight"></div>
+
+<!-- Music -->
+<audio id="bgm" loop>
+    <source src="shire.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="openSound">
+    <source src="open.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>

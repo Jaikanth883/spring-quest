@@ -1,0 +1,118 @@
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family:Georgia, serif;
+    color:#ffeaea;
+    background:#0b0000;
+}
+
+/* moving vampire mist */
+.fog{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(140,0,0,0.45), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(110,0,0,0.35), transparent 55%),
+        radial-gradient(circle at 50% 90%, rgba(180,0,0,0.25), transparent 60%),
+        linear-gradient(#070000,#160000 50%,#030000);
+    filter:blur(18px);
+    animation:moveFog 18s ease-in-out infinite alternate;
+    z-index:0;
+}
+
+@keyframes moveFog{
+    from{transform:scale(1);}
+    to{transform:scale(1.15);}
+}
+
+/* dark edge cinematic */
+.vignette{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle, transparent 50%, rgba(0,0,0,0.85) 100%);
+    z-index:1;
+}
+
+/* cinematic text */
+.textBox{
+    position:absolute;
+    top:42%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:80%;
+    text-align:center;
+    font-size:28px;
+    opacity:0;
+    transition:opacity 2s ease;
+    z-index:3;
+}
+
+/* buttons */
+.choiceBox{
+    position:absolute;
+    bottom:20%;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:30px;
+    z-index:3;
+}
+
+button{
+    padding:12px 26px;
+    background:rgba(0,0,0,0.4);
+    border:1px solid rgba(255,100,100,0.6);
+    color:#ffe5e5;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:rgba(120,0,0,0.5);
+    box-shadow:0 0 18px rgba(255,70,70,0.7);
+    transform:scale(1.05);
+}
+
+.hidden{
+    display:none;
+}
+
+/* input */
+.inputBox{
+    position:absolute;
+    bottom:18%;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    z-index:3;
+}
+
+.question{
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+input{
+    padding:12px;
+    width:260px;
+    text-align:center;
+    background:rgba(0,0,0,.5);
+    border:1px solid rgba(255,120,120,.5);
+    color:white;
+    margin-bottom:12px;
+}
+#fadeScreen{
+    position:fixed;
+    inset:0;
+    background:black;
+    opacity:0;
+    pointer-events:none;
+    transition:1.5s ease;
+    z-index:9999;
+}
+
+#fadeScreen.active{
+    opacity:1;
+}

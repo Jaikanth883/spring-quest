@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Episode</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- red mist background -->
+<div class="fog"></div>
+<div class="vignette"></div>
+
+<!-- cinematic text -->
+<div id="textBox" class="textBox"></div>
+
+<!-- choice buttons -->
+<div id="choiceBox" class="choiceBox hidden">
+    <button onclick="choice(false)">It's just coincidence</button>
+    <button onclick="choice(true)">It means something</button>
+</div>
+
+<!-- input -->
+<div id="inputBox" class="inputBox hidden">
+    <div class="question">
+        Tell me something honestly...
+        <br><br>
+        When did you first realize I was different to you?
+    </div>
+
+    <input id="answerInput" type="text" placeholder="type anything...">
+    <button onclick="submitAnswer()">Submit</button>
+</div>
+
+<!-- audio -->
+<audio id="bgm" loop preload="auto">
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="heart" preload="auto">
+    <source src="heartbeat.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+<div id="fadeScreen"></div>
+
+</body>
+</html>

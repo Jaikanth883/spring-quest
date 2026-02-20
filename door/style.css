@@ -1,0 +1,276 @@
+/* ================= BASE ================= */
+
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family:'Cinzel',serif;
+
+    background:
+        radial-gradient(circle at 50% 20%, rgba(120,150,255,0.15), transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(60,90,160,0.25), transparent 50%),
+        radial-gradient(circle at 80% 85%, rgba(40,70,130,0.25), transparent 55%),
+        linear-gradient(#02030a,#030617 60%,#010208);
+}
+
+/* ================= SKY PARTICLES ================= */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:0.6;
+    animation:twinkle linear infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:0.2; transform:translateY(0px);}
+    to{opacity:1; transform:translateY(-18px);}
+}
+
+/* fireflies float in FRONT of sky but BEHIND door */
+
+.firefly{
+    position:fixed;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#ffe89a;
+    box-shadow:0 0 12px #ffe89a, 0 0 25px #ffd86b;
+    animation:floatFly linear infinite;
+    pointer-events:none;
+    z-index:1;
+}
+
+@keyframes floatFly{
+    0%{transform:translateY(0) translateX(0);}
+    50%{transform:translateY(-80px) translateX(40px);}
+    100%{transform:translateY(-160px) translateX(-40px);}
+}
+
+/* ================= SCENE ================= */
+
+.scene{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:5;
+}
+
+/* ================= DOOR ================= */
+
+.door{
+    position:relative;
+    width:360px;
+    height:520px;
+
+    border-radius:180px 180px 18px 18px;
+    border:1.5px solid rgba(170,210,255,0.35);
+
+    background:
+        radial-gradient(ellipse at center,
+            rgba(40,70,130,0.25) 0%,
+            rgba(10,18,40,0.55) 55%,
+            rgba(3,6,16,0.95) 100%);
+
+    backdrop-filter: blur(3px);
+
+    box-shadow:
+        0 0 30px rgba(120,180,255,0.35),
+        inset 0 0 60px rgba(40,120,255,0.15);
+
+    overflow:hidden;
+    z-index:10;
+}
+
+/* stone interior — blocks stars/fireflies */
+.door::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:170px 170px 14px 14px;
+
+    background:
+        radial-gradient(ellipse at 50% 30%,
+            #0a1228 0%,
+            #060b1c 45%,
+            #030712 80%,
+            #01030a 100%);
+
+    z-index:1; /* IMPORTANT FIX */
+}
+
+/* mist aura */
+
+.door::before{
+    content:"";
+    position:absolute;
+    inset:-40px;
+    border-radius:200px;
+    background:radial-gradient(circle, rgba(130,160,255,0.25), transparent 70%);
+    filter:blur(30px);
+    z-index:-1;
+    animation:mist 6s ease-in-out infinite alternate;
+}
+
+@keyframes mist{
+    from{opacity:0.3;}
+    to{opacity:0.6;}
+}
+
+/* ================= MORIA TEXT ================= */
+
+.moriaWords{
+    position:absolute;
+    top:55px;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    letter-spacing:4px;
+    color:#e6f2ff;
+    pointer-events:none;
+    z-index:20; /* FIX: now above stone layer */
+}
+
+.moriaWords span{
+    display:block;
+    font-size:24px;
+    margin:6px 0;
+
+    text-shadow:
+        0 0 6px #bcdfff,
+        0 0 14px #7fd0ff,
+        0 0 28px #4aaeff,
+        0 0 60px #2b8cff;
+
+    animation:elvishGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes elvishGlow{
+    from{
+        opacity:0.75;
+        transform:scale(1);
+        filter:brightness(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.05);
+        filter:brightness(1.4);
+    }
+}
+
+/* ================= INPUT AREA ================= */
+
+.answerBox{
+    position:absolute;
+    top:60%;
+    left:50%;
+    transform:translate(-50%, 0);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+    z-index:20;
+}
+
+#answer{
+    width:240px;
+    padding:14px 18px;
+    border-radius:14px;
+    border:1px solid rgba(140,190,255,0.45);
+    background:rgba(10,20,45,0.45);
+    color:#e6f2ff;
+    text-align:center;
+    font-family:'Cinzel', serif;
+    font-size:16px;
+    outline:none;
+
+    box-shadow:
+        inset 0 0 12px rgba(120,180,255,0.25),
+        0 0 18px rgba(100,160,255,0.35);
+
+    transition:0.35s;
+}
+
+#answer:focus{
+    box-shadow:
+        inset 0 0 18px rgba(140,200,255,0.45),
+        0 0 28px rgba(120,190,255,0.75);
+}
+
+#answer::placeholder{
+    color:#b9cfff;
+    opacity:0.7;
+}
+
+button{
+    padding:10px 24px;
+    border-radius:12px;
+    border:1px solid rgba(150,200,255,0.6);
+    background:rgba(20,40,90,0.55);
+    color:#eaf6ff;
+    font-family:'Cinzel', serif;
+    letter-spacing:2px;
+    cursor:pointer;
+
+    box-shadow:0 0 18px rgba(120,170,255,0.45);
+    transition:0.25s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 0 25px rgba(150,180,255,0.9),
+        inset 0 0 14px rgba(255,255,255,0.25);
+}
+
+/* ================= MESSAGE ================= */
+
+#message{
+    position:absolute;
+    bottom:25px;
+    width:100%;
+    text-align:center;
+    opacity:0;
+    transition:opacity 1s ease;
+    color:#dfe9ff;
+    letter-spacing:2px;
+    z-index:20;
+}
+
+/* ================= DOOR AWAKENING ================= */
+
+.door.awakening{
+    box-shadow:
+        0 0 40px rgba(140,200,255,0.6),
+        0 0 120px rgba(140,200,255,0.45),
+        inset 0 0 80px rgba(120,180,255,0.35);
+    transition:1.5s;
+}
+
+/* ================= OPENING LIGHT ================= */
+
+.openLight{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle, #cfe8ff 0%, #9fd0ff 30%, #ffffff 70%);
+    opacity:0;
+    pointer-events:none;
+    transition:1.5s;
+    z-index:50;
+}
+
+.openLight.show{
+    opacity:1;
+}

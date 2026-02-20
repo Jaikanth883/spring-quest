@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lux Archives</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+    <div id="dialogue" class="dialogue"></div>
+
+    <div id="inputArea" class="inputArea hidden">
+        <input id="userInput" type="text" placeholder="Tell me your desire...">
+        <button onclick="processInput()">Submit</button>
+    </div>
+
+    <div id="nextStep" class="hidden">
+        <button class="luxBtn" onclick="nextStage()">Ask a better question</button>
+    </div>
+
+    <div id="finalStep" class="hidden">
+        <button class="luxBtn" onclick="goTVD()">Continue the story</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
