@@ -64,7 +64,7 @@ typeText("Hello, Detective.", ()=>{
 
     typeText("Lucifer Morningstar rarely entertains visitors… yet you found your way here.", ()=>{
 
-        typeText("Tell me… what is it you truly desire?", ()=>{
+        typeText("Tell me… what is it you truly desire? (one word)", ()=>{
             inputArea.classList.remove("hidden");
         });
 
