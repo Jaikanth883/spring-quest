@@ -120,6 +120,66 @@ function processInput(){
     else if(answer.includes("answer")){
         typeText("Answers are overrated. The right question… now that's power.");
     }
+    else if(answer.includes("freedom") || answer.includes("independence")){
+    typeText("Freedom is rarely about leaving… it's about being chosen and still staying.");
+}
+
+else if(answer.includes("peace") || answer.includes("calm")){
+    typeText("Peace is what people ask for when their heart is tired of pretending.");
+}
+
+else if(answer.includes("trust")){
+    typeText("Trust… the most expensive thing a human gives. And the easiest to lose.");
+}
+
+else if(answer.includes("attention")){
+    typeText("Ah, attention. Not from everyone… from one person in particular.");
+}
+
+else if(answer.includes("care")){
+    typeText("You don’t want care from the world. You want it from someone specific.");
+}
+
+else if(answer.includes("understand") || answer.includes("understanding")){
+    typeText("To be understood… now that is rarer than love.");
+}
+
+else if(answer.includes("someone") || answer.includes("person")){
+    typeText("Interesting. So it was never a *what*… it was always a *who*.");
+}
+
+else if(answer.includes("future")){
+    typeText("The future worries you because you already see someone inside it.");
+}
+
+else if(answer.includes("stay") || answer.includes("together")){
+    typeText("Humans fear many things. But the strongest fear… is someone leaving.");
+}
+
+else if(answer.includes("memory") || answer.includes("memories")){
+    typeText("Memories are dangerous. They mean a moment mattered.");
+}
+
+else if(answer.includes("forget")){
+    typeText("If you truly wanted to forget… you wouldn't be here.");
+}
+
+else if(answer.includes("miss") || answer.includes("missing")){
+    typeText("You don't miss time. You miss how someone made you feel during it.");
+}
+
+else if(answer.includes("friend")){
+    typeText("Humans often say 'friend' when they are afraid to say something else.");
+}
+
+else if(answer.includes("why")){
+    typeText("You're not asking why you came here. You're asking why *them*.");
+}
+
+else if(answer.includes("destiny") || answer.includes("fate")){
+    typeText("Fate is merely a word people use when they already know their choice.");
+}
+
     else{
         const reply = neutralReplies[Math.floor(Math.random()*neutralReplies.length)];
         typeText(reply);
